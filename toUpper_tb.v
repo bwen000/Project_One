@@ -1,99 +1,95 @@
 `timescale 1ns / 1ps
 
 module toUpper_tb;
-    reg [7:0] in;
-    wire [7:0] out;
+    reg [7:0] ascii_in;
+    wire [7:0] ascii_out;
     
-    toUpper uut (
-        .in(in),
-        .out(out)
-    );
+    toUpper uut(ascii_in, ascii_out);
     
     initial begin
-        $dumpfile("toupper_waveform.vcd");
+        $dumpfile("toUpper_tb.vcd");
         $dumpvars(0, toUpper_tb);
         
-        $display("Time\tInput\tOutput\tExpected");
-        $display("====\t=====\t======\t========");
+        ascii_in = 8'd0;
+        #10;
         
-        in = 8'd40;
-        #100;
-        $display("%0t\t%d\t%d\t%d", $time, in, out, 40);
+        ascii_in = 8'd40;
+        #50;
+        $display("Input: %d (%c) -> Output: %d (%c)", ascii_in, ascii_in, ascii_out, ascii_out);
         
-        in = 8'd72;
-        #100;
-        $display("%0t\t%d\t%d\t%d", $time, in, out, 72);
+        ascii_in = 8'd72;
+        #50;
+        $display("Input: %d (%c) -> Output: %d (%c)", ascii_in, ascii_in, ascii_out, ascii_out);
         
-        in = 8'd183;
-        #100;
-        $display("%0t\t%d\t%d\t%d", $time, in, out, 183);
+        ascii_in = 8'd183;
+        #50;
+        $display("Input: %d (%c) -> Output: %d (%c)", ascii_in, ascii_in, ascii_out, ascii_out);
         
-        in = 8'd131;
-        #100;
-        $display("%0t\t%d\t%d\t%d", $time, in, out, 131);
+        ascii_in = 8'd131;
+        #50;
+        $display("Input: %d (%c) -> Output: %d (%c)", ascii_in, ascii_in, ascii_out, ascii_out);
         
-        in = 8'd124;
-        #100;
-        $display("%0t\t%d\t%d\t%d", $time, in, out, 124);
+        ascii_in = 8'd124;
+        #50;
+        $display("Input: %d (%c) -> Output: %d (%c)", ascii_in, ascii_in, ascii_out, ascii_out);
         
-        in = 8'd20;
-        #100;
-        $display("%0t\t%d\t%d\t%d", $time, in, out, 20);
+        ascii_in = 8'd20;
+        #50;
+        $display("Input: %d (%c) -> Output: %d (%c)", ascii_in, ascii_in, ascii_out, ascii_out);
         
-        in = 8'd235;
-        #100;
-        $display("%0t\t%d\t%d\t%d", $time, in, out, 235);
+        ascii_in = 8'd235;
+        #50;
+        $display("Input: %d (%c) -> Output: %d (%c)", ascii_in, ascii_in, ascii_out, ascii_out);
         
-        in = 8'd97;
-        #100;
-        $display("%0t\t%d\t%d\t%d", $time, in, out, 65);
+        ascii_in = 8'd97;
+        #50;
+        $display("Input: %d (%c) -> Output: %d (%c)", ascii_in, ascii_in, ascii_out, ascii_out);
         
-        in = 8'd65;
-        #100;
-        $display("%0t\t%d\t%d\t%d", $time, in, out, 65);
+        ascii_in = 8'd65;
+        #50;
+        $display("Input: %d (%c) -> Output: %d (%c)", ascii_in, ascii_in, ascii_out, ascii_out);
         
-        in = 8'd122;
-        #100;
-        $display("%0t\t%d\t%d\t%d", $time, in, out, 90);
+        ascii_in = 8'd122;
+        #50;
+        $display("Input: %d (%c) -> Output: %d (%c)", ascii_in, ascii_in, ascii_out, ascii_out);
         
-        in = 8'd71;
-        #100;
-        $display("%0t\t%d\t%d\t%d", $time, in, out, 71);
+        ascii_in = 8'd71;
+        #50;
+        $display("Input: %d (%c) -> Output: %d (%c)", ascii_in, ascii_in, ascii_out, ascii_out);
         
-        in = 8'd109;
-        #100;
-        $display("%0t\t%d\t%d\t%d", $time, in, out, 77);
+        ascii_in = 8'd109;
+        #50;
+        $display("Input: %d (%c) -> Output: %d (%c)", ascii_in, ascii_in, ascii_out, ascii_out);
         
-        in = 8'd146;
-        #100;
-        $display("%0t\t%d\t%d\t%d", $time, in, out, 146);
+        ascii_in = 8'd146;
+        #50;
+        $display("Input: %d (%c) -> Output: %d (%c)", ascii_in, ascii_in, ascii_out, ascii_out);
         
-        in = 8'd48;
-        #100;
-        $display("%0t\t%d\t%d\t%d", $time, in, out, 48);
+        ascii_in = 8'd48;
+        #50;
+        $display("Input: %d (%c) -> Output: %d (%c)", ascii_in, ascii_in, ascii_out, ascii_out);
         
-        in = 8'd207;
-        #100;
-        $display("%0t\t%d\t%d\t%d", $time, in, out, 207);
+        ascii_in = 8'd207;
+        #50;
+        $display("Input: %d (%c) -> Output: %d (%c)", ascii_in, ascii_in, ascii_out, ascii_out);
         
-        in = 8'd58;
-        #100;
-        $display("%0t\t%d\t%d\t%d", $time, in, out, 58);
+        ascii_in = 8'd58;
+        #50;
+        $display("Input: %d (%c) -> Output: %d (%c)", ascii_in, ascii_in, ascii_out, ascii_out);
         
-        in = 8'd123;
-        #100;
-        $display("%0t\t%d\t%d\t%d", $time, in, out, 123);
+        ascii_in = 8'd123;
+        #50;
+        $display("Input: %d (%c) -> Output: %d (%c)", ascii_in, ascii_in, ascii_out, ascii_out);
         
-        in = 8'd148;
-        #100;
-        $display("%0t\t%d\t%d\t%d", $time, in, out, 148);
+        ascii_in = 8'd148;
+        #50;
+        $display("Input: %d (%c) -> Output: %d (%c)", ascii_in, ascii_in, ascii_out, ascii_out);
         
-        in = 8'd127;
-        #100;
-        $display("%0t\t%d\t%d\t%d", $time, in, out, 127);
+        ascii_in = 8'd127;
+        #50;
+        $display("Input: %d (%c) -> Output: %d (%c)", ascii_in, ascii_in, ascii_out, ascii_out);
         
-        #100;
-        $display("\nSimulation complete!");
+        #50;
         $finish;
     end
 endmodule
